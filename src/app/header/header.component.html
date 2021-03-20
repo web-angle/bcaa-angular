@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse ml-3" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" href="/">New Orders <span class="sr-only">(current)</span></a>
+         </li>
+         <li class="nav-item {% if request.path == updated_orders_url %}active{% endif %}">
+            <a class="nav-link" routerLink="./updated-orders">Updated</a>
+         </li>
+         <li class="nav-item {% if request.path == completed_orders_url %}active{% endif %}">
+            <a class="nav-link" routerLink="./completed-orders">Completed</a>
+         </li>
+      </ul>
+      <span class="navbar-text">
+          <a
+           href="{% url 'load_orders' redirect_url=redirect_url %}"
+           class="mr-5 btn btn-sm btn-primary"
+           style="visibility:{% if request.path == home_page_url or request.path == completed_orders_url %}visible{% else %}hidden{% endif %}">
+           Load Orders
+          </a>
+      </span>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>

@@ -1,0 +1,31 @@
+<div *ngIf="hasOrders">
+    <div class="col-sm-11 col-md-11 col-lg-7 mx-auto mt-3">
+        <div class="limiter">
+             <div class="mt-2">
+                <div class="table100">
+                   <table>
+                      <thead>
+                         <tr class="table100-head">
+                            <th class="pl-3">No</th>
+                            <th>Order No</th>
+                            <th class="pl-4"><i class="fa fa-calendar" aria-hidden="true"></i></th>
+                         </tr>
+                      </thead>
+                      <tbody *ngFor="let item of ordersList[0]">
+                            <tr style="font-size:14px !important;">
+                               <td class="pl-3">{{ item[0] }}</td>
+                               <td>
+                                    <a  class="text-primary" [routerLink]="['/display-order', 'new-orders', item[1], item[2]]">{{ item[1] }}</a>
+                                </td>
+                               <td><span class="text-info">{{ item[2] }}</span></td>
+                            </tr>
+                      </tbody>
+                   </table>
+                </div>
+             </div>
+          </div> 
+</div>
+</div>
+<div *ngIf="!hasOrders">
+    <h1 class="text-danger text-center mt-5">No Orders</h1>
+</div>

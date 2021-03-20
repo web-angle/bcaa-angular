@@ -1,0 +1,51 @@
+<div class="col-sm-11 col-md-11 col-lg-7 mx-auto mt-3">
+   <div class="limiter">
+        <div class="mt-2">
+           <div class="table100">
+              <table>
+                 <thead>
+                    <tr class="table100-head">
+                       <th class="pl-3">No</th>
+                               <th>Order No</th>
+                               <th class="pl-4"><i class="fa fa-calendar" aria-hidden="true"></i></th>
+                       <th>Add Tracking No</th>
+                       <th></th>
+                    </tr>
+                 </thead>
+                 <tbody *ngFor="let item of ordersList[0] | paginate: {
+                                 itemsPerPage: 10,
+                                 currentPage: page,
+                                 totalItems: 264 }">
+                       <tr style="font-size:14px !important;">
+                          <td class="pl-3">{{ item[0] }}</td>
+                          <td>
+                               <a  class="text-primary" [routerLink]="['/display-order', 'new-orders', item[1], item[2]]">{{ item[1] }}</a>
+                           </td>
+                          <td><span class="text-info">{{ item[2] }}</span></td>
+                          <td class="pl-5" onclick="displayNext(this)">
+                           <span class="text-primary">
+                                 <i class="fa fa-plus p-1" aria-hidden="true"></i>
+                           </span>
+                       </td>
+                       <td class="">
+                           <form action="" method="POST" class="form-inline invisible">
+                                 <input type="hidden" name="order_no" value="">
+                                 <input type="hidden" name="date" value="">
+                                 <input type="text" name="tracking_no" style="padding-left:8px;" placeholder="Enter Tracking Number" class="form-control border">
+                                 <input type="submit" class="btn btn-primary" style="padding:5px 8px; margin-left: 4px;">
+                           </form>
+                        </td>
+                       </tr>
+                 </tbody>
+              </table>
+           </div>
+        </div>
+     </div> 
+
+     <div class="mt-3 col-7 mx-auto">
+      <pagination-controls
+      (pageChange)="handlePageChange($event)"
+      previousLabel="Prev"
+      nextLabel="Next"
+    ></pagination-controls>
+     </div>

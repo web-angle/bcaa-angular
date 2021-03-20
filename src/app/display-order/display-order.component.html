@@ -1,0 +1,14 @@
+
+<table class="col-6 mt-4 mx-auto">
+    <thead>
+    <tr class="table100-head">
+        <th colspan="2" style="padding-left:250px !important;">Order Details</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let item of orderData | keyvalue">
+        <tr *ngIf="item.key != 'Billing'">
+            <td class="pl-4 pr-5">{{ item.key }}</td>
+            <td class="text-muted px-4">{{ item.value }}</td>
+        </tr>
+    </tbody>
+</table>

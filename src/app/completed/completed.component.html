@@ -1,0 +1,26 @@
+<div class="limiter mb-5 mt-5">
+    <div class="table100">
+         <table class="col-6">
+            <thead>
+              <tr class="table100-head">
+                <th class="pl-3">No</th>
+                <th class="pl-3">Order No.</th>
+                <th class="pl-4"><i class="fa fa-calendar" aria-hidden="true"></i></th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of ordersList[0]">
+          <tr>
+            <td class="pl-3">{{ item[0] }}</td>
+              <td><a [routerLink]="['/display-order', 'completed-orders', item[1], item[2]]" class="text-primary pl-3 mt-3">{{ item[1] }}</a></td>
+              <td><span class="text-info">{{ item[2] }}</span></td>
+              <td>
+                  <a href="" class="text-dark ml-3">
+                      <i class="fa fa-lg fa-trash mb-1"></i>
+                  </a>
+              </td>
+          </tr>
+        </tbody>
+         </table>
+    </div>
+</div>
